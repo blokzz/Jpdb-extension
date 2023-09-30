@@ -1,0 +1,39 @@
+{
+    "name": "Jpdb levels",
+    "version": "0.1.0",
+    "description": "displaying in colors levels of jlpt",
+    "permissions": [
+      "activeTab"
+    ],
+    "host_permissions": ["https://jisho.org/api/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://jpdb.io/review/*" , "https://jpdb.io/review*" ],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/bookmark.png",
+          "assets/play.png",
+          "assets/delete.png",
+          "assets/save.png"
+        ],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "assets/ext-icon.png",
+        "24": "assets/ext-icon.png",
+        "32": "assets/ext-icon.png"
+      },
+      "default_title": "Jpdb levels",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+}
